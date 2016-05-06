@@ -7,7 +7,7 @@
 	o-o -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.intuit.sb.devops.bootcamp.name</groupId>
+  <groupId>com.intuit.sb.devops.bootcamp.YOUR-NAME</groupId>
   <artifactId>webapp</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>war</packaging>
@@ -31,6 +31,7 @@
             <showWarnings>true</showWarnings>
           </configuration>
         </plugin>
+<!--
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-war-plugin</artifactId>
@@ -57,6 +58,7 @@
             </archive>
           </configuration>
         </plugin>
+-->
       </plugins>
     </pluginManagement>
   </build>
@@ -68,4 +70,40 @@
         <version>7.0.22</version>
     </dependency>
   </dependencies>
+
+<profiles>
+	<profile>
+	<id>bootcamp</id>
+	<build>
+	<plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>2.4</version>
+          <configuration>
+            <useDefaultManifestFile>true</useDefaultManifestFile>
+            <archive>
+              <index>true</index>
+              <manifestEntries>
+                <Bundle-Version>${project.version}</Bundle-Version>
+                <Bundle-Description>${project.description} - Profile bootcamp</Bundle-Description>
+                <Implementation-Version>${project.version}</Implementation-Version>
+                <Build-Jdk>${java.version}</Build-Jdk>
+                <Build-URL>${bldURL}</Build-URL>
+                <Build-Number>${bldNumber}</Build-Number>
+                <Build-Time>${bldTimeStamp}</Build-Time>
+                <Git-Commit>${GIT_COMMIT}</Git-Commit>
+                <Git-URL>${GIT_URL}</Git-URL>
+                <Git-Branch>${GIT_BRANCH}</Git-Branch>
+                <Built-By>${bldUserName}</Built-By>
+                <Build-Tag>jenkins-${JOB_NAME}-${bldNumber}</Build-Tag>
+              </manifestEntries>
+            </archive>
+          </configuration>
+        </plugin>
+      </plugins>
+	</build>
+	</profile>
+</profiles>
+
 </project>
