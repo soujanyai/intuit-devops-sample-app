@@ -19,4 +19,15 @@ echo
 mvn clean install
 """)
 	}
+
+	publishers {
+        downstreamParameterized {
+            trigger( "${YOUR_USER_NAME}Deploydev") {
+                condition('UNSTABLE_OR_BETTER')
+                parameters {
+                    predefinedProp ( "ARTIFACT_S3_URL", "insert_s3_url" )
+                }
+            }
+        }
+    }
 }
