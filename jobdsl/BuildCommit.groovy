@@ -13,4 +13,12 @@ job ( "${YOUR_USER_NAME}BuildCommit" ) {
 		}
 	}
 */
+
+	steps {
+		shell (
+"""
+echo
+mvn clean install
+""")
+	}
 }
