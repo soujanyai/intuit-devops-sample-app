@@ -18,7 +18,6 @@ for ( curEnv in allowedEnvironments ) {
 
 		parameters {
 			stringParam ( "ARTIFACT_S3_URL", "", "url for the app to be deployed" )
-			stringParam ( "ENVIRONMENT_NAME", "", "deployment environment" )
 		}
 
 		scm {
@@ -37,7 +36,7 @@ for ( curEnv in allowedEnvironments ) {
 	
 echo
 echo insert code here to pull your war file from your s3 bucket
-echo insert code here to run your cloudformation script
+echo insert code here to run your cloudformation script to deploy to ${curEnv}
 echo
 	""")
 		}

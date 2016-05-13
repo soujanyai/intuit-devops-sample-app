@@ -18,7 +18,6 @@ for ( curEnv in allowedEnvironments ) {
 
 		parameters {
 			stringParam ( "ARTIFACT_S3_URL", "", "url for the app to be deployed" )
-			stringParam ( "ENVIRONMENT_NAME", "", "deployment environment" )
 		}
 
 		scm {
