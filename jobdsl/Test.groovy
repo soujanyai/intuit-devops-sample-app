@@ -35,7 +35,7 @@ for ( curEnv in allowedEnvironments ) {
 	"""#!/bin/bash
 	
 echo
-echo insert code here to execute your tests for the ${curEnv} environment
+echo insert code here to execute your tests for your ${curEnv} environment
 echo
 	""")
 		}
